@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import clsx from 'clsx'
 
 type CardProps = {
   id: string
@@ -9,6 +10,7 @@ type CardProps = {
   spanishLabel: string
   imageUrl?: string
   bgColor?: string
+  bgImageUrl?: string
 }
 
 function Card({
@@ -17,6 +19,7 @@ function Card({
   spanishLabel,
   imageUrl,
   bgColor,
+  bgImageUrl,
 }: CardProps) {
   return (
     <div id={id} className="rounded-xl bg-gray-50 p-2">
@@ -31,7 +34,11 @@ function Card({
         </h3>
       </div>
       <div
-        className={`flex justify-center ${bgColor ?? 'bg-white'} rounded-xl px-4 py-8`}
+        className={clsx(
+          `flex justify-center ${bgColor ?? 'bg-white'} rounded-xl px-4 py-8`,
+          { 'bg-cover bg-center': bgImageUrl },
+        )}
+        style={{ backgroundImage: bgImageUrl && `url(${bgImageUrl})` }}
       >
         {imageUrl && (
           <Image
