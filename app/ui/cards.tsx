@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useState } from 'react'
 
 type CardProps = {
   id: string
@@ -44,11 +47,31 @@ function Card({
 }
 
 export default function Cards({ cards }: { cards: CardProps[] }) {
+  const [search, setSearch] = useState<string>('')
+
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {cards.map((c) => (
-        <Card key={c.id} {...c} />
-      ))}
+    <div>
+      <input
+        placeholder="Search"
+        className="peer block rounded-md border border-gray-200 p-2 mb-5 text-sm outline-2 placeholder:text-gray-500"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {cards
+          .filter(
+            ({ englishLabel, spanishLabel }) =>
+              englishLabel
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase()) ||
+              spanishLabel
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase()),
+          )
+          .map((c) => (
+            <Card key={c.id} {...c} />
+          ))}
+      </div>
     </div>
   )
 }

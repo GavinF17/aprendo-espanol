@@ -4,6 +4,7 @@ import {
   HomeIcon,
   ShoppingBagIcon,
   PaintBrushIcon,
+  UserIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -18,6 +19,11 @@ const links = [
     name: 'Clothes',
     href: '/clothes',
     icon: ShoppingBagIcon,
+  },
+  {
+    name: 'Body',
+    href: '/body',
+    icon: UserIcon,
   },
 ]
 
