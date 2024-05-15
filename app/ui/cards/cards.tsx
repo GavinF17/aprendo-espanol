@@ -30,8 +30,6 @@ function Card({
 
   return (
     <div id={id} className="rounded-xl bg-gray-50 p-2">
-      {showSpanish}
-      {showEnglish}
       <div className="p-4">
         <h3 className="flex gap-2 ml-2 text-sm font-medium">
           <Image src="/flag-gb.svg" alt="Flag GB" width={20} height={20} />

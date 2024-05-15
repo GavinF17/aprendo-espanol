@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Cards from '@/app/ui/cards/cards'
+import { Suspense } from 'react'
 
 const categories = {
   ropa: {
@@ -392,12 +393,14 @@ export default function Page() {
   return (
     <div>
       <h1 className="mb-4 text-xl md:text-2xl">Clothes Cheatsheet</h1>
-      <Cards
-        cards={clothes.map((c) => ({
-          ...c,
-          imageUrl: `/learning/clothes/${c.id}.svg`,
-        }))}
-      />
+      <Suspense>
+        <Cards
+          cards={clothes.map((c) => ({
+            ...c,
+            imageUrl: `/learning/clothes/${c.id}.svg`,
+          }))}
+        />
+      </Suspense>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Cards from '@/app/ui/cards/cards'
+import { Suspense } from 'react'
 
 type Colour = {
   id: string
@@ -110,7 +111,9 @@ export default function Page() {
   return (
     <div>
       <h1 className="mb-4 text-xl md:text-2xl">Colours Cheatsheet</h1>
-      <Cards cards={colours} />
+      <Suspense>
+        <Cards cards={colours} />
+      </Suspense>
     </div>
   )
 }

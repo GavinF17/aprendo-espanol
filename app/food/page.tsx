@@ -1,4 +1,5 @@
 import Cards from '@/app/ui/cards/cards'
+import { Suspense } from 'react'
 
 type FoodItem = {
   id: string
@@ -94,12 +95,14 @@ export default function Page() {
   return (
     <div>
       <h1 className="mb-4 text-xl md:text-2xl">Food & Drink Cheatsheet</h1>
-      <Cards
-        cards={foodItems.map((c) => ({
-          ...c,
-          bgImageUrl: `/learning/food/${c.id}.jpg`,
-        }))}
-      />
+      <Suspense>
+        <Cards
+          cards={foodItems.map((c) => ({
+            ...c,
+            bgImageUrl: `/learning/food/${c.id}.jpg`,
+          }))}
+        />
+      </Suspense>
     </div>
   )
 }
