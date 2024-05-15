@@ -1,4 +1,4 @@
-import Cards from '@/app/ui/cards'
+import Cards from '@/app/ui/cards/cards'
 
 type BodyPart = {
   id: string

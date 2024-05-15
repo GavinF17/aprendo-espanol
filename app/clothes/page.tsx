@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Cards from '@/app/ui/cards'
+import Cards from '@/app/ui/cards/cards'
 
 const categories = {
   ropa: {
@@ -149,7 +149,7 @@ const clothes: Clothes[] = [
   {
     id: 'bragas',
     category: 'ropa',
-    englishLabel: 'panties',
+    englishLabel: 'pants',
     spanishLabel: 'las bragas',
   },
   {
