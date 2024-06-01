@@ -1,5 +1,7 @@
+'use client'
 import Cards from '@/app/ui/cards/cards'
 import { Suspense } from 'react'
+import Quiz from '@/app/ui/quiz/quiz'
 
 type Colour = {
   id: string
@@ -110,7 +112,9 @@ const colours: Colour[] = [
 export default function Page() {
   return (
     <div>
-      <h1 className="mb-4 text-xl md:text-2xl">Colours Cheatsheet</h1>
+      <h1 className="mb-4 text-xl md:text-2xl">Colours Quiz</h1>
+      <Quiz questionOptions={colours} />
+      <h1 className="mb-4 mt-24 text-xl md:text-2xl">Colours Cheatsheet</h1>
       <Suspense>
         <Cards cards={colours} />
       </Suspense>

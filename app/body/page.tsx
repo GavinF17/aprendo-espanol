@@ -1,5 +1,6 @@
 import Cards from '@/app/ui/cards/cards'
 import { Suspense } from 'react'
+import Quiz from '@/app/ui/quiz/quiz'
 
 type BodyPart = {
   id: string
@@ -38,7 +39,9 @@ const bodyParts: BodyPart[] = [
 export default function Page() {
   return (
     <div>
-      <h1 className="mb-4 text-xl md:text-2xl">Body Cheatsheet</h1>
+      <h1 className="mb-4 text-xl md:text-2xl">Body Quiz</h1>
+      <Quiz questionOptions={bodyParts} />
+      <h1 className="mb-4 mt-24 text-xl md:text-2xl">Body Cheatsheet</h1>
       <Suspense>
         <Cards cards={bodyParts} />
       </Suspense>

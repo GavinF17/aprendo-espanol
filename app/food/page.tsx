@@ -1,5 +1,6 @@
 import Cards from '@/app/ui/cards/cards'
 import { Suspense } from 'react'
+import Quiz from '@/app/ui/quiz/quiz'
 
 type FoodItem = {
   id: string
@@ -94,7 +95,11 @@ const foodItems: FoodItem[] = [
 export default function Page() {
   return (
     <div>
-      <h1 className="mb-4 text-xl md:text-2xl">Food & Drink Cheatsheet</h1>
+      <h1 className="mb-4 text-xl md:text-2xl">Food Quiz</h1>
+      <Quiz questionOptions={foodItems} />
+      <h1 className="mb-4 mt-24 text-xl md:text-2xl">
+        Food & Drink Cheatsheet
+      </h1>
       <Suspense>
         <Cards
           cards={foodItems.map((c) => ({
